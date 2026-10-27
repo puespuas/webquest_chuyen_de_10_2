@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WEBQUEST - CHINH PHỤC CẨM NANG HỌC TẬP HIỆU QUẢ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <h1>WEBQUEST - CHINH PHỤC CẨM NANG HỌC TẬP HIỆU QUẢ</h1>
+            <p>Chuyên đề 10.2 – Thực hành sử dụng phần mềm trình chiếu | Tin học 10 – ICT</p>
+        </div>
+    </header>
+
+    <div class="layout">
+        <nav class="sidebar" aria-label="Mục lục WebQuest">
+            <button type="button" class="menu-toggle" id="menu-toggle" aria-expanded="false" aria-controls="sidebar-menu">
+                <span class="menu-toggle-icon" aria-hidden="true">☰</span>
+                <span>Mục lục: <strong id="menu-current">Trang chủ</strong></span>
+            </button>
+
+            <div class="sidebar-menu" id="sidebar-menu">
+                <div class="progress-box">
+                    <div class="progress-text">
+                        <span>Tiến độ của nhóm</span>
+                        <strong id="progress-count">0/7</strong>
+                    </div>
+                    <div class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="7" aria-valuenow="0" id="progress-bar">
+                        <div class="progress-fill" id="progress-fill"></div>
+                    </div>
+                </div>
+
+                <p class="nav-group">Bắt đầu</p>
+                <ul>
+                    <li><a href="#" data-target="home" class="active"><span class="nav-ico" aria-hidden="true">🏠</span><span class="nav-label">Trang chủ</span></a></li>
+                    <li><a href="#" data-target="task"><span class="nav-ico" aria-hidden="true">👥</span><span class="nav-label">Nhiệm vụ & Nhóm</span> <span class="status-icon" id="status-task"></span></a></li>
+                </ul>
+
+                <p class="nav-group">5 chặng thực hành</p>
+                <ul class="nav-steps">
+                    <li><a href="#" data-target="process-b1"><span class="nav-num">1</span><span class="nav-label">Bài 1: Lập kế hoạch</span> <span class="status-icon" id="status-process-b1"></span></a></li>
+                    <li><a href="#" data-target="process-b2"><span class="nav-num">2</span><span class="nav-label">Bài 2: Dàn ý & Nguồn</span> <span class="status-icon" id="status-process-b2"></span></a></li>
+                    <li><a href="#" data-target="process-b3"><span class="nav-num">3</span><span class="nav-label">Bài 3: Thiết kế V1</span> <span class="status-icon" id="status-process-b3"></span></a></li>
+                    <li><a href="#" data-target="process-b4"><span class="nav-num">4</span><span class="nav-label">Bài 4: Đa phương tiện</span> <span class="status-icon" id="status-process-b4"></span></a></li>
+                    <li><a href="#" data-target="process-b5"><span class="nav-num">5</span><span class="nav-label">Bài 5: Hoàn thiện</span> <span class="status-icon" id="status-process-b5"></span></a></li>
+                </ul>
+
+                <p class="nav-group">Kết thúc & tham khảo</p>
+                <ul>
+                    <li><a href="#" data-target="report"><span class="nav-ico" aria-hidden="true">🏁</span><span class="nav-label">Báo cáo kết quả</span> <span class="status-icon" id="status-report"></span></a></li>
+                    <li><a href="#" data-target="evaluation"><span class="nav-ico" aria-hidden="true">🎯</span><span class="nav-label">Tiêu chí Đánh giá</span></a></li>
+                </ul>
+
+                <div class="actions">
+                    <button id="btn-clear-data" class="danger">Xóa dữ liệu (Làm lại)</button>
+                </div>
+            </div>
+        </nav>
+
+        <main class="content" id="content">
+            <!-- TRANG CHỦ -->
+            <section id="home" class="section">
+                <h2>Khởi động hành trình</h2>
+                <div class="card card-hero">
+                    <h3>Tình huống dự án</h3>
+                    <p>Chào mừng các bạn đóng vai trò là những biên tập viên tài năng! Trường chúng ta đang cần một cuốn <strong>"Cẩm nang học tập hiệu quả dành cho học sinh lớp 10"</strong>. Nhiệm vụ của nhóm bạn là nghiên cứu thông tin, lựa chọn nội dung đáng tin cậy và tạo ra một bài trình chiếu hoàn chỉnh, có giá trị thực tiễn cao để trình bày trước trường.</p>
+                    <ul class="fact-list">
+                        <li><strong>Sản phẩm cuối:</strong> Bài trình chiếu (PPTX) "Cẩm nang học tập hiệu quả dành cho học sinh lớp 10" và các minh chứng quá trình (MC01–MC08).</li>
+                        <li><strong>Thời lượng:</strong> 10 tiết, gồm 8 tiết thực hành qua 5 bài và 2 tiết báo cáo kết quả.</li>
+                        <li><strong>Hình thức:</strong> Học theo dự án, làm việc theo nhóm 4–5 học sinh.</li>
+                        <li><strong>Đánh giá:</strong> Dựa trên minh chứng nộp sau mỗi bài, không chỉ dựa vào bài trình chiếu cuối. Tiêu chí được công bố trước ở mục <a href="#" class="nav-btn inline-link" data-target="evaluation">Tiêu chí Đánh giá</a>.</li>
+                    </ul>
+                </div>
+
+                <div class="card">
+                    <h3>Lộ trình dự án</h3>
+                    <p class="muted">Sản phẩm của bài trước là đầu vào của bài sau, nên hãy hoàn thành và nộp minh chứng theo đúng thứ tự.</p>
+                    <ol class="roadmap">
+                        <li><button type="button" class="nav-btn roadmap-item" data-target="process-b1"><span class="rm-num">1</span><span class="rm-title">Lập kế hoạch và phân công</span><span class="rm-meta">Tiết 1<br>Nộp MC01</span></button></li>
+                        <li><button type="button" class="nav-btn roadmap-item" data-target="process-b2"><span class="rm-num">2</span><span class="rm-title">Dàn ý, kịch bản và nguồn kiểm chứng</span><span class="rm-meta">Tiết 2–3<br>Nộp MC02, MC03</span></button></li>
+                        <li><button type="button" class="nav-btn roadmap-item" data-target="process-b3"><span class="rm-num">3</span><span class="rm-title">Thiết kế bài trình chiếu V1</span><span class="rm-meta">Tiết 4–5<br>Nộp MC04</span></button></li>
+                        <li><button type="button" class="nav-btn roadmap-item" data-target="process-b4"><span class="rm-num">4</span><span class="rm-title">Đa phương tiện và tương tác</span><span class="rm-meta">Tiết 6–7<br>Nộp MC05, MC06</span></button></li>
+                        <li><button type="button" class="nav-btn roadmap-item" data-target="process-b5"><span class="rm-num">5</span><span class="rm-title">Tích hợp, kiểm thử, hoàn thiện</span><span class="rm-meta">Tiết 8<br>Nộp MC07, MC08</span></button></li>
+                        <li><button type="button" class="nav-btn roadmap-item rm-final" data-target="report"><span class="rm-num" aria-hidden="true">🏁</span><span class="rm-title">Báo cáo kết quả, tự và đồng đánh giá</span><span class="rm-meta">Tiết 9–10<br>PPTX final + PDF</span></button></li>
+                    </ol>
+                </div>
+
+                <button class="btn-primary nav-btn" data-target="task">Bắt đầu hành trình</button>
+            </section>
+
+            <!-- NHIỆM VỤ -->
+            <section id="task" class="section hidden">
+                <h2>Nhiệm vụ & Đăng ký nhóm</h2>
+
+                <div class="card bg-light">
+                    <h3>📌 Nhiệm vụ cụ thể</h3>
+                    <p>Để tạo ra được cuốn "Cẩm nang học tập" xuất sắc, các bạn sẽ làm việc theo nhóm. Mỗi nhóm đóng vai trò là một <strong>Đội Biên tập & Thiết kế</strong>. Nhiệm vụ của đội là:</p>
+                    <ol>
+                        <li><strong>Tập hợp đội ngũ:</strong> Thành lập nhóm từ 4–5 thành viên.</li>
+                        <li><strong>Phân vai tác chiến:</strong> Tự thỏa thuận và phân công các vai trò như <em>Trưởng nhóm (Điều phối), Biên tập viên (Nội dung), Chuyên viên Thiết kế (Làm slide), Thuyết trình viên</em>.</li>
+                        <li><strong>Thực hiện 5 chặng thực hành:</strong> Trải qua 5 bài học để lập kế hoạch, tìm kiếm tài liệu, thiết kế slide, chèn hiệu ứng và hoàn thiện sản phẩm.</li>
+                        <li><strong>Báo cáo nghiệm thu:</strong> Trình bày sản phẩm PPTX hoàn chỉnh trước lớp, trả lời vấn đáp và tham gia tự đánh giá, đánh giá đồng đẳng.</li>
+                    </ol>
+                    <p class="tip">💡 Dù mỗi bạn giữ một vai trò, khi báo cáo <strong>bất kỳ thành viên nào</strong> cũng có thể được gọi để giải thích sản phẩm chung.</p>
+                </div>
+
+                <div class="card bg-resource">
+                    <h3>👥 Bảng Đăng ký nhóm</h3>
+                    <p>Giáo viên đã chuẩn bị sẵn một bảng tính trực tuyến. Các nhóm vui lòng truy cập đường link bên dưới để nhập <strong>Tên nhóm</strong>, <strong>Họ tên các thành viên</strong> và <strong>Vai trò dự kiến</strong>.</p>
+                    <a href="https://docs.google.com/spreadsheets/d/1-dOnhSzd-e2tuzw0GFA9I64Z4nrlRiF3QxuQLf8hHrI/edit?gid=0#gid=0" target="_blank" rel="noopener" class="btn-drive">🔗 Link Bảng Đăng Ký Nhóm </a>
+                    <p class="note"><em>*Lưu ý: Chỉ cần 1 đại diện nhóm truy cập link để điền thông tin.</em></p>
+                </div>
+
+                <div class="submit-section card">
+                    <h3>Hoàn thành Đăng ký</h3>
+                    <p>Sau khi nhóm bạn đã điền đầy đủ thông tin vào link Excel của giáo viên, hãy bấm nút dưới đây để xác nhận và sẵn sàng bước vào Bài 1.</p>
+                    <button class="btn-complete" id="btn-complete-task" onclick="toggleComplete('task')">Đánh dấu đã hoàn thành</button>
+                </div>
+            </section>
+
+            <!-- BÀI 1 -->
+            <section id="process-b1" class="section hidden">
+                <h2>Bài 1: Lập kế hoạch và phân công (Tiết 1)</h2>
+                <div class="lesson-meta">
+                    <span class="tag tag-time">⏱ Tiết 1</span>
+                    <span class="tag tag-yc" title="Thống nhất mục tiêu, lập kế hoạch và phân công">YC3.1</span>
+                    <span class="tag tag-mc">Nộp MC01</span>
+                </div>
+
+                <div class="card bg-light">
+                    <h3>📌 Nhiệm vụ cụ thể của học sinh</h3>
+                    <div class="ai-rule">
+                        <p class="ai-title">🤖 Quy định sử dụng AI</p>
+                        <ul>
+                            <li class="no"><strong>Không được dùng</strong> AI để lập kế hoạch và phân công. Kế hoạch phải do chính nhóm thực hiện.</li>
+                        </ul>
+                    </div>
+                    <ol>
+                        <li>Xem và phân tích mẫu cẩm nang dự kiến.</li>
+                        <li>Nghe giáo viên giải thích lộ trình 5 bài và các sản phẩm cần có của từng bài.</li>
+                        <li>Lập nhóm, thống nhất chi tiết công việc vào <strong>Bảng phân công nhiệm vụ</strong> (theo mẫu của giáo viên).</li>
+                        <li>Tạo thư mục dùng chung của nhóm trên Drive và thống nhất quy ước đặt tên tệp, lưu phiên bản.</li>
+                    </ol>
+                    <p class="tip">💡 Tránh chia việc theo kiểu "ai làm phần dễ" khiến một bạn phải làm quá nhiều. Mỗi đầu việc cần có người phụ trách, người phối hợp, và từng thành viên xác nhận phần việc của mình.</p>
+                </div>
+
+                <div class="card bg-resource">
+                    <h3>📚 Học liệu & Công cụ hỗ trợ</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://docs.google.com/presentation/d/1bpJ112W6HF7kH51i7KqRuvStwi8uJURB/edit?rtpof=true" target="_blank" rel="noopener">📄 Mẫu cẩm nang dự kiến</a></li>
+                        <li><a href="https://docs.google.com/document/d/1slPQJIrVWLxPSB4H42RnNDJVgXWSg0-x/edit?rtpof=true" target="_blank" rel="noopener">📄 Phiếu tình huống</a></li>
+                        <li><a href="https://docs.google.com/document/d/1kzfOZBWXcytX_Xb3Xs60d2wkv7KOUw_Q/edit" target="_blank" rel="noopener">📊 Mẫu bảng phân công và kế hoạch làm việc (MC01) </a></li>
+                        <li><a href="https://docs.google.com/document/d/1vvXkK4Lrrb-9kQYo4vrj0QtHRwnlOBs-/edit" target="_blank" rel="noopener">📁 Hướng dẫn quy ước đặt tên tệp và tạo thư mục Drive chung</a></li>
+                        <li><a href="https://docs.google.com/document/d/1ooBOMi6_7yvHfX4pfBhqK3NSsBPHrPmy/edit" target="_blank" rel="noopener">📄 Phiếu góp ý chéo</a></li>
+                        <li><a href="https://docs.google.com/document/d/1k3OGN0EUr3aWyqU41cTJ6w88L61lUz3O/edit" target="_blank" rel="noopener">📊 Rubric sản phẩm </a></li>
+                        <li><a href="https://docs.google.com/document/d/1PHnFKgDPjWQHtL-TlxjBTAUfVHGPxn9M/edit" target="_blank" rel="noopener">📄 Phiếu giao nhiệm vụ </a></li>
+                    </ul>
+                </div>
+
+                <div class="card eval-box">
+                    <h3>🎯 Bài này được đánh giá thế nào?</h3>
+                    <div class="eval-grid">
+                        <div>
+                            <p class="eval-head">Quá trình <span>Giáo viên quan sát, ghi vào Bảng kiểm</span></p>
+                            <p>Tham gia thảo luận, đề xuất ý kiến, phối hợp với các thành viên và thực hiện nhiệm vụ được phân công.</p>
+                        </div>
+                        <div>
+                            <p class="eval-head">Sản phẩm MC01 <span>Chấm bằng Rubric</span></p>
+                            <p>Đầy đủ đầu việc, thời gian hợp lý, phân công rõ ràng và phù hợp, kế hoạch khả thi, trình bày dễ theo dõi.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-btn eval-link" data-target="evaluation" data-open="check-b1,rubric-b1">Xem đầy đủ tiêu chí Bài 1</a>
+                </div>
+
+                <div class="submit-section card">
+                    <h3>Nộp minh chứng & Hoàn thành</h3>
+                    <p>Nộp <strong>MC01</strong> (Bảng phân công và kế hoạch làm việc của nhóm) vào thư mục Drive của giáo viên:</p>
+                    <a href="https://drive.google.com/drive/folders/1B-AoslbqUawLavmFJhKxRkQ1PAEIIlkY" target="_blank" rel="noopener" class="btn-drive">🔗 Link nộp bài </a>
+                    <div class="complete-wrap">
+                        <button class="btn-complete" id="btn-complete-process-b1" onclick="toggleComplete('process-b1')">Đánh dấu đã hoàn thành Bài 1</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÀI 2 -->
+            <section id="process-b2" class="section hidden">
+                <h2>Bài 2: Dàn ý, kịch bản và nguồn kiểm chứng (Tiết 2-3)</h2>
+                <div class="lesson-meta">
+                    <span class="tag tag-time">⏱ Tiết 2–3</span>
+                    <span class="tag tag-yc" title="Xây dựng dàn ý, nội dung, kịch bản cho chủ đề thuyết trình">YC1.1</span>
+                    <span class="tag tag-yc" title="Kiểm tra tính đúng đắn của nội dung tìm hiểu">YC1.2</span>
+                    <span class="tag tag-mc">Nộp MC02, MC03, cập nhật MC07</span>
+                </div>
+
+                <div class="card bg-light">
+                    <h3>📌 Nhiệm vụ cụ thể của học sinh</h3>
+                    <div class="ai-rule">
+                        <p class="ai-title">🤖 Quy định sử dụng AI</p>
+                        <ul>
+                            <li class="no"><strong>Không được dùng</strong> AI khi tự lập dàn ý và khi tìm, chọn, đối chiếu nguồn (AI có thể đưa ra nguồn không tồn tại).</li>
+                            <li class="yes"><strong>Được dùng có điều kiện</strong> sau khi đã nộp MC02, MC03: đưa dàn ý cho AI phản biện logic, nhóm tự quyết định nhận hay loại góp ý. Ghi vào nhật ký: dàn ý trước và sau, công cụ, prompt chính, phần đã dùng/loại/sửa và lí do.</li>
+                        </ul>
+                    </div>
+                    <p class="period">Tiết 2: Dàn ý và kịch bản</p>
+                    <ol>
+                        <li>Tham khảo mẫu dàn ý (của đề tài khác) do giáo viên cung cấp.</li>
+                        <li>Xác định đối tượng người nghe, mục đích và thông điệp của bài thuyết trình.</li>
+                        <li>Lập dàn ý chi tiết: Mở đầu, nội dung chính, hướng dẫn áp dụng, kết luận.</li>
+                        <li>Phân chia ý chính vào từng slide, viết bằng lời của nhóm.</li>
+                    </ol>
+                    <p class="period">Tiết 3: Nguồn kiểm chứng</p>
+                    <ol start="5">
+                        <li>Liệt kê thông tin cần tìm, tiến hành tìm kiếm và đối chiếu với các nguồn đáng tin cậy.</li>
+                        <li>Ghi rõ nguồn cho từng nội dung được chọn vào <strong>Bảng nguồn</strong> (theo mẫu) và gắn nguồn với slide tương ứng.</li>
+                    </ol>
+                    <p class="tip">💡 Không chép nguyên văn: hãy ghi ý bằng lời của nhóm, rồi thử truy một ý bất kỳ ngược về đúng nguồn của nó. Dàn ý cần ghi cụ thể các kiến thức cần có, tránh viết quá chung.</p>
+                </div>
+
+                <div class="card bg-resource">
+                    <h3>📚 Học liệu & Công cụ hỗ trợ</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://docs.google.com/document/d/1-5mam10QflHLmRkI7jacRS42FCC86gwf/edit" target="_blank" rel="noopener">📄 Mẫu dàn ý A và B </a></li>
+                        <li><a href="https://docs.google.com/document/d/1AuT8FX1EfngGSv8t3rD_AUOfqJcwQBr4/edit" target="_blank" rel="noopener">📄 Phiếu học tập số 1</a></li>
+                        <li><a href="https://docs.google.com/document/d/12QpjhTllLRFn2y5NfRjehLNg1WYlLoKJ/edit" target="_blank" rel="noopener">💡 Bảng Ý Tưởng</a></li>
+                        <li><a href="https://docs.google.com/document/d/1SCAOBqH7KRovq562-TUNgHzM5OlQqJaI/edit" target="_blank" rel="noopener">📓 Mẫu dàn ý và kịch bản (MC02) </a></li>
+                        <li><a href="https://docs.google.com/document/d/1ogNqsSmbWKOb9GEI6oax9EVpJvpfiQtV/edit" target="_blank" rel="noopener">📄 Phiếu học tập số 2</a></li>
+                        <li><a href="https://docs.google.com/document/d/1gIIqixsnHeAvLju8pMb1KAyDZ71l-8JA/edit" target="_blank" rel="noopener">📊 Biểu mẫu Bảng nguồn kiểm chứng thông tin</a></li>
+                        <li><a href="https://docs.google.com/document/d/1cFLkjfX8QfLTynWv3fnhO6KJaoQ2CsXc/edit" target="_blank" rel="noopener">📓 Mẫu Nhật ký làm việc nhóm (MC07)</a></li>
+                        <li><a href="https://scholar.google.com" target="_blank" rel="noopener">🔍 Công cụ tìm kiếm học thuật: Google Scholar</a></li>
+                        <li><a href="https://docs.google.com/document/d/1iM4bKTDGWzbkTiftXcPlE7ltKnWY0nVY/edit" target="_blank" rel="noopener">📊 Rubric đánh giá sản phẩm </a></li>
+                    </ul>
+                </div>
+
+                <div class="card eval-box">
+                    <h3>🎯 Bài này được đánh giá thế nào?</h3>
+                    <div class="eval-grid">
+                        <div>
+                            <p class="eval-head">Quá trình <span>Giáo viên quan sát, ghi vào Bảng kiểm</span></p>
+                            <p><strong>Tiết 2:</strong> tham gia thảo luận, đề xuất ý tưởng dàn ý và cách chia slide, phối hợp thực hiện nhiệm vụ. <strong>Tiết 3:</strong> chủ động tìm kiếm thông tin, trao đổi và phối hợp.</p>
+                        </div>
+                        <div>
+                            <p class="eval-head">Sản phẩm MC02, MC03 <span>Chấm bằng Rubric</span></p>
+                            <p>Dàn ý đầy đủ, hợp lý, phù hợp mục đích và thông điệp, chia slide rõ ý chính. Xác định đúng thông tin cần tìm, đối chiếu nguồn tin cậy, ghi nguồn và gắn nguồn với slide.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-btn eval-link" data-target="evaluation" data-open="check-b2,rubric-b2">Xem đầy đủ tiêu chí Bài 2</a>
+                </div>
+
+                <div class="submit-section card">
+                    <h3>Nộp minh chứng & Hoàn thành</h3>
+                    <p>Nộp <strong>MC02</strong> (Dàn ý và kịch bản), <strong>MC03</strong> (Bảng nguồn có ghi chú kiểm chứng) và cập nhật <strong>MC07</strong> (Nhật ký làm việc nhóm) vào thư mục Drive:</p>
+                    <a href="https://drive.google.com/drive/folders/14d3mPPdeJQtsjG9WVG8k0vMt15cReMl-" target="_blank" rel="noopener" class="btn-drive">🔗 Link nộp bài </a>
+                    <div class="complete-wrap">
+                        <button class="btn-complete" id="btn-complete-process-b2" onclick="toggleComplete('process-b2')">Đánh dấu đã hoàn thành Bài 2</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÀI 3 -->
+            <section id="process-b3" class="section hidden">
+                <h2>Bài 3: Thiết kế bài trình chiếu (Tiết 4-5)</h2>
+                <div class="lesson-meta">
+                    <span class="tag tag-time">⏱ Tiết 4–5</span>
+                    <span class="tag tag-yc" title="Thiết kế trang chiếu trình bày nội dung phù hợp">YC1.3</span>
+                    <span class="tag tag-yc" title="Phối hợp, trao đổi và hỗ trợ nhau">YC3.2</span>
+                    <span class="tag tag-mc">Nộp MC04, cập nhật MC07</span>
+                </div>
+
+                <div class="card bg-light">
+                    <h3>📌 Nhiệm vụ cụ thể của học sinh</h3>
+                    <div class="ai-rule">
+                        <p class="ai-title">🤖 Quy định sử dụng AI</p>
+                        <ul>
+                            <li class="no"><strong>Không được dùng</strong> AI để thiết kế bố cục, chọn chữ, chọn màu và tạo slide. Các thao tác này phải do chính học sinh làm.</li>
+                        </ul>
+                    </div>
+                    <p class="period">Tiết 4: Thiết kế</p>
+                    <ol>
+                        <li>Quan sát và so sánh các mẫu slide do GV trình chiếu (slide nhiều chữ vs. slide dùng từ khóa, ý chính).</li>
+                        <li>Nắm vững nguyên tắc thiết kế (bố cục, font chữ, màu sắc).</li>
+                        <li>Sử dụng phần mềm tạo các slide đầu tiên (V1) dựa theo dàn ý MC02.</li>
+                    </ol>
+                    <p class="period">Tiết 5: Chạy thử và chỉnh sửa</p>
+                    <ol start="4">
+                        <li>Chạy thử bài trình chiếu, sửa lỗi thiết kế nếu có hoặc theo phản hồi của giáo viên.</li>
+                        <li>Ghi phản hồi đã nhận và phần đã sửa vào <strong>Nhật ký phối hợp</strong> (MC07).</li>
+                    </ol>
+                    <p class="tip">💡 Thử đọc slide từ cuối phòng: nếu đọc không rõ là đang nhồi chữ hoặc màu chưa đủ tương phản. Đối chiếu từng slide với dàn ý để không bị lệch kịch bản.</p>
+                </div>
+
+                <div class="card bg-resource">
+                    <h3>📚 Học liệu & Công cụ hỗ trợ</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://docs.google.com/document/d/12HMJdYE0XERgIye-HOHr_HEhjlwkMDGI/edit" target="_blank" rel="noopener">📓 Bộ phiếu học tập</a></li>
+                        <li><a href="https://docs.google.com/presentation/d/1UkrmfPiI3m2S_L0TcdceeYYNCqIjBeSr/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noopener">🖼️ Slide trước / sau</a></li>
+                        <li><a href="https://docs.google.com/presentation/d/10CmCHTGV15SWMvivXF2tbwhcS1e1z9nn/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noopener">🖼️ Slide cần cứu</a></li>
+                        <li><a href="https://docs.google.com/presentation/d/1V-z0uwEtYpMkIRSS7jPxfFvWCQfP--DS/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noopener">🖼️ Slide thực hành</a></li>
+                        <li><a href="https://docs.google.com/document/d/1NpHQbp14Rp0ZPToLkn5V-HmEpYHLK2yH/edit?rtpof=true" target="_blank" rel="noopener">📓 Mẫu Nhật ký phản hồi và chỉnh sửa (MC07)</a></li>
+                    </ul>
+                </div>
+
+                <div class="card eval-box">
+                    <h3>🎯 Bài này được đánh giá thế nào?</h3>
+                    <div class="eval-grid">
+                        <div>
+                            <p class="eval-head">Quá trình <span>Giáo viên quan sát, ghi vào Bảng kiểm</span></p>
+                            <p>Nhận xét, so sánh mẫu slide; áp dụng nguyên tắc thiết kế; chọn bố cục, chữ, màu phù hợp; tạo slide theo dàn ý; chủ động sửa lỗi và tiếp thu phản hồi.</p>
+                        </div>
+                        <div>
+                            <p class="eval-head">Sản phẩm MC04 <span>Chấm bằng Rubric</span></p>
+                            <p>Bố cục, kiểu chữ, màu sắc, hình ảnh phù hợp; nội dung rõ ràng, dễ đọc; thiết kế thống nhất giữa các slide; bám sát dàn ý và mục đích.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-btn eval-link" data-target="evaluation" data-open="check-b3,rubric-b3">Xem đầy đủ tiêu chí Bài 3</a>
+                </div>
+
+                <div class="submit-section card">
+                    <h3>Nộp minh chứng & Hoàn thành</h3>
+                    <p>Nộp <strong>MC04</strong> (Tệp PPTX V1) và cập nhật <strong>MC07</strong> (ghi phản hồi đã nhận và đã sửa) vào thư mục Drive:</p>
+                    <a href="https://drive.google.com/drive/folders/1y_9qNKlzfAgnCQ93qxo7F9ID1NB9yWID" target="_blank" rel="noopener" class="btn-drive">🔗 Link nộp bài </a>
+                    <div class="complete-wrap">
+                        <button class="btn-complete" id="btn-complete-process-b3" onclick="toggleComplete('process-b3')">Đánh dấu đã hoàn thành Bài 3</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÀI 4 -->
+            <section id="process-b4" class="section hidden">
+                <h2>Bài 4: Đa phương tiện và tương tác (Tiết 6-7)</h2>
+                <div class="lesson-meta">
+                    <span class="tag tag-time">⏱ Tiết 6–7</span>
+                    <span class="tag tag-yc" title="Tối ưu hóa yếu tố đa phương tiện như video, hình ảnh">YC2.1</span>
+                    <span class="tag tag-yc" title="Thiết lập hiệu ứng phù hợp cho bài trình chiếu">YC2.2</span>
+                    <span class="tag tag-mc">Nộp MC05, MC06, cập nhật MC07</span>
+                </div>
+
+                <div class="card bg-light">
+                    <h3>📌 Nhiệm vụ cụ thể của học sinh</h3>
+                    <div class="ai-rule">
+                        <p class="ai-title">🤖 Quy định sử dụng AI</p>
+                        <ul>
+                            <li class="no"><strong>Không được dùng</strong> AI để tạo hộ tệp, tạo tư liệu thay nhóm (ngoài ảnh minh họa), hay thiết lập hiệu ứng, nút điều hướng.</li>
+                            <li class="yes"><strong>Được dùng AI tạo ảnh</strong> nếu ảnh phù hợp nội dung và ghi rõ "Ảnh do AI tạo".</li>
+                            <li class="yes"><strong>Được dùng có điều kiện</strong> khi dò lỗi tương tác: mô tả lỗi cho AI để nhận gợi ý chẩn đoán từng bước, nhóm tự sửa và chạy thử lại. Ghi vào nhật ký: bảng lỗi, prompt, phần chẩn đoán đã dùng/loại.</li>
+                        </ul>
+                    </div>
+                    <p class="period">Tiết 6: Đa phương tiện</p>
+                    <ol>
+                        <li>Rà soát kịch bản, đánh dấu các vị trí cần chèn hình ảnh, video minh họa.</li>
+                        <li>Tìm kiếm đa phương tiện từ các nguồn uy tín, chèn vào bài trình chiếu và cập nhật <strong>Bảng nguồn</strong>.</li>
+                    </ol>
+                    <p class="period">Tiết 7: Hiệu ứng và tương tác</p>
+                    <ol start="3">
+                        <li>Xác định các đối tượng cần thiết lập hiệu ứng (Animation/Transition), nút điều hướng (Trigger, Hyperlink).</li>
+                        <li>Thiết lập hiệu ứng, tạo menu, nút và liên kết.</li>
+                        <li>Chạy thử chế độ Slide Show từ đầu đến cuối. Ghi lỗi tương tác (link hỏng, video không chạy, nút sai đích) vào <strong>Bảng kiểm thử</strong>, sửa và chạy thử lại.</li>
+                    </ol>
+                    <p class="tip">💡 Hiệu ứng nhiều không làm bài hay hơn, chỉ dùng khi giúp người xem theo dõi. Bấm thử từng nút, từng liên kết. Nếu thiếu thời gian, nhóm có thể tìm tư liệu trước ở nhà.</p>
+                </div>
+
+                <div class="card bg-resource">
+                    <h3>📚 Học liệu & Công cụ hỗ trợ</h3>
+                    <ul class="resource-list">
+                        <li><a href="#" target="_blank" rel="noopener">📊 Mẫu Bảng ghi chép kiểm thử lỗi tương tác</a></li>
+                        <li><a href="https://pixabay.com" target="_blank" rel="noopener">🖼️ Kho hình ảnh/video miễn phí (Pixabay, Unsplash)</a></li>
+                        <li><a href="#" target="_blank" rel="noopener">🎥 Video hướng dẫn tạo Trigger & Hyperlink trong PowerPoint</a></li>
+                    </ul>
+                </div>
+
+                <div class="card eval-box">
+                    <h3>🎯 Bài này được đánh giá thế nào?</h3>
+                    <div class="eval-grid">
+                        <div>
+                            <p class="eval-head">Quá trình <span>Giáo viên quan sát, ghi vào Bảng kiểm</span></p>
+                            <p>Rà soát kịch bản, xác định chỗ cần minh họa và hiệu ứng; tìm tư liệu có nguồn; chèn đa phương tiện, thiết lập hiệu ứng, menu, liên kết; chủ động chạy thử và sửa lỗi.</p>
+                        </div>
+                        <div>
+                            <p class="eval-head">Sản phẩm MC05, MC06 <span>Chấm bằng Rubric</span></p>
+                            <p>Tư liệu phù hợp, rõ nét, có nguồn; hiệu ứng, menu, liên kết phù hợp và hoạt động chính xác; bài vận hành ổn định sau khi chạy thử và sửa.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-btn eval-link" data-target="evaluation" data-open="check-b4,rubric-b4">Xem đầy đủ tiêu chí Bài 4</a>
+                </div>
+
+                <div class="submit-section card">
+                    <h3>Nộp minh chứng & Hoàn thành</h3>
+                    <p>Nộp <strong>MC05</strong> (PPTX đa phương tiện và Bảng nguồn cập nhật), <strong>MC06</strong> (PPTX tương tác và ghi chép kiểm thử) và cập nhật <strong>MC07</strong> vào Drive:</p>
+                    <a href="https://drive.google.com/drive/folders/1jf5huSSRYb8SDtnTxi_-0qMRmttCunCz" target="_blank" rel="noopener" class="btn-drive">🔗 Link nộp bài </a>
+                    <div class="complete-wrap">
+                        <button class="btn-complete" id="btn-complete-process-b4" onclick="toggleComplete('process-b4')">Đánh dấu đã hoàn thành Bài 4</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÀI 5 -->
+            <section id="process-b5" class="section hidden">
+                <h2>Bài 5: Tích hợp, kiểm thử, hoàn thiện sản phẩm (Tiết 8)</h2>
+                <div class="lesson-meta">
+                    <span class="tag tag-time">⏱ Tiết 8</span>
+                    <span class="tag tag-yc" title="Phối hợp, trao đổi và hỗ trợ nhau">YC3.2</span>
+                    <span class="tag tag-yc" title="Cùng kiểm tra, hoàn thiện và chịu trách nhiệm sản phẩm chung">YC3.3</span>
+                    <span class="tag tag-mc">Nộp MC07, MC08</span>
+                </div>
+
+                <div class="card bg-light">
+                    <h3>📌 Nhiệm vụ cụ thể của học sinh</h3>
+                    <div class="ai-rule">
+                        <p class="ai-title">🤖 Quy định sử dụng AI</p>
+                        <ul>
+                            <li class="no"><strong>Không được dùng</strong> AI để viết thay nhật ký, checklist, bảng lỗi, hoặc thay thế thao tác thiết kế.</li>
+                            <li class="yes"><strong>Được dùng, có ghi nhận</strong>: kiểm tra chính tả chữ trên slide ở bước hoàn thiện, không làm thay đổi nội dung. Ghi rõ công cụ vào nhật ký.</li>
+                        </ul>
+                    </div>
+                    <ol>
+                        <li>Tích hợp các slide rời rạc thành một tệp PPTX duy nhất. Chốt một người giữ tệp chính.</li>
+                        <li>Rà soát thống nhất toàn bộ nội dung, thuật ngữ, bố cục, màu sắc, font chữ.</li>
+                        <li>Lập checklist bám theo yêu cầu của dự án và chạy thử toàn bài.</li>
+                        <li>Ghi vào <strong>Bảng lỗi</strong>: lỗi phát hiện, nguyên nhân, người sửa, kết quả kiểm tra lại.</li>
+                        <li>Lưu tệp dưới dạng bản <strong>PPTX Final</strong>. Phần chưa xong trên lớp, nhóm hoàn thiện ngoài giờ.</li>
+                    </ol>
+                    <p class="tip">💡 Để tránh xung đột phiên bản, chỉ người giữ tệp chính được ghép bài, và ghi lại cách xử lí khi các bản sửa bị trùng nhau.</p>
+                </div>
+
+                <div class="card bg-resource">
+                    <h3>📚 Học liệu & Công cụ hỗ trợ</h3>
+                    <ul class="resource-list">
+                        <li><a href="https://docs.google.com/presentation/d/1TgyGnON9dp7n_nkFQhE7hz-cgMFTv-ef/edit?slide=id.p1#slide=id.p1" target="_blank" rel="noopener">📚 Tệp minh họa</a></li>
+                        <li><a href="https://docs.google.com/document/d/1jJ0BypP8jatBUVMXrWC0iu1Ma7I-5tNN/edit" target="_blank" rel="noopener">📄 Phiếu bắt lỗi</a></li>
+                        <li><a href="https://docs.google.com/document/d/1UNo602M_ZjEUo4uH0VsZMYXJLy78WjFI/edit" target="_blank" rel="noopener">📓 Thẻ hỗ trợ thao tác</a></li>
+                        <li><a href="https://docs.google.com/document/d/1-TyOeL_k5QH_0-MPLA2Vo0pAIIsLLuV8/edit" target="_blank" rel="noopener">✅ Checklist kiểm tra sản phẩm</a></li>
+                        <li><a href="https://docs.google.com/document/d/1OFOfkt-YFZ1Ps4lI7G2HJbM4TRH-RBHa/edit" target="_blank" rel="noopener">📓 Mẫu Bảng lỗi – sửa lỗi – kiểm thử lại</a></li>
+                        <li><a href="https://docs.google.com/document/d/1uXBqWYr0tt-lQSuLjJRLCEJTUQPVuLAj/edit" target="_blank" rel="noopener">📓 Nhật ký phối hợp </a></li>
+                        <li><a href="https://docs.google.com/document/d/1BcuWHy_7lmHVGi6R-HlFm9yYLZhel3bt/edit" target="_blank" rel="noopener">📄 Phiếu kiểm thử chéo</a></li>
+                        <li><a href="https://docs.google.com/document/d/1AIOPCInzhwqTC2D5Vqn1Ykdph1XfTO5u/edit" target="_blank" rel="noopener">📄 Phiếu giao nhiệm vụ</a></li>
+                        <li><a href="https://docs.google.com/document/d/1ShlR6ZMq_YrdV3gF0BPwazcJRuXn6w33/edit" target="_blank" rel="noopener">✅ Rubric sản phẩm</a></li>
+                    </ul>
+                </div>
+
+                <div class="card eval-box">
+                    <h3>🎯 Bài này được đánh giá thế nào?</h3>
+                    <div class="eval-grid">
+                        <div>
+                            <p class="eval-head">Quá trình <span>Không dùng Bảng kiểm ở bài này</span></p>
+                            <p>Bài 5 chỉ đánh giá qua sản phẩm. Sự phối hợp của nhóm được thể hiện qua Nhật ký phối hợp (MC07).</p>
+                        </div>
+                        <div>
+                            <p class="eval-head">Sản phẩm MC07, MC08 <span>Chấm bằng Rubric</span></p>
+                            <p>Hoàn chỉnh, thống nhất sau tích hợp; nội dung chính xác, logic; đồng bộ định dạng; đa phương tiện và tương tác vận hành tốt; phát hiện, khắc phục lỗi; nộp bản cuối đúng yêu cầu.</p>
+                        </div>
+                    </div>
+                    <a href="#" class="nav-btn eval-link" data-target="evaluation" data-open="rubric-b5">Xem đầy đủ tiêu chí Bài 5</a>
+                </div>
+
+                <div class="submit-section card">
+                    <h3>Nộp minh chứng & Hoàn thành</h3>
+                    <p>Nộp <strong>MC07</strong> (Nhật ký phối hợp, các bản nháp chính, tệp tích hợp) và <strong>MC08</strong> (PPTX Final, checklist, bảng lỗi – sửa lỗi – kiểm thử lại) vào Drive:</p>
+                    <a href="https://drive.google.com/drive/folders/1LINtrBvyIj7RBDpvaN8ot7iFQX4G8_mJ" target="_blank" rel="noopener" class="btn-drive">🔗 Link nộp PPTX Final </a>
+                    <div class="complete-wrap">
+                        <button class="btn-complete" id="btn-complete-process-b5" onclick="toggleComplete('process-b5')">Đánh dấu đã hoàn thành Bài 5</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- BÁO CÁO (Tích hợp Padlet) -->
+            <section id="report" class="section hidden">
+                <h2>Báo cáo kết quả & Nhận xét đồng đẳng (Tiết 9-10)</h2>
+                <div class="lesson-meta">
+                    <span class="tag tag-time">⏱ Tiết 9–10</span>
+                    <span class="tag tag-yc" title="Cùng kiểm tra, hoàn thiện và chịu trách nhiệm sản phẩm chung">YC3.3</span>
+                    <span class="tag tag-mc">Nộp PPTX final + PDF, phiếu tự/đồng đánh giá</span>
+                </div>
+
+                <div class="card bg-light">
+                    <h3>📌 Nhiệm vụ cụ thể của học sinh</h3>
+                    <div class="ai-rule">
+                        <p class="ai-title">🤖 Quy định sử dụng AI</p>
+                        <ul>
+                            <li class="no"><strong>Không được dùng</strong> AI khi trả lời vấn đáp, tự đánh giá và đánh giá đồng đẳng.</li>
+                        </ul>
+                    </div>
+                    <ol>
+                        <li>Đại diện nhóm thuyết trình và demo ngắn gọn sản phẩm trước lớp, đúng thời gian quy định.</li>
+                        <li>Trả lời câu hỏi vấn đáp của giáo viên về chủ đề nhóm đã chọn. Người trả lời được chọn bằng <strong>bốc thăm</strong> và có 1 phút chuẩn bị, nên mọi thành viên đều cần giải thích được sản phẩm chung.</li>
+                        <li>Xem bài của các nhóm khác trên không gian Padlet, bình luận và góp ý.</li>
+                        <li>Hoàn thành <strong>Phiếu tự đánh giá</strong> (cá nhân) và <strong>Phiếu đánh giá đồng đẳng</strong>.</li>
+                        <li>Cùng giáo viên tổng kết, chốt kiến thức của chuyên đề.</li>
+                    </ol>
+                </div>
+
+                <div class="card bg-resource">
+                    <h3>📝 Phiếu đánh giá & Nộp sản phẩm cuối</h3>
+                    <div class="link-row">
+                        <a href="https://docs.google.com/document/d/1jNuScLhy5U0Nm9Sf4RLZ38N8m7-TFQbh/edit" target="_blank" rel="noopener" class="btn-drive">🔗 Phiếu tự đánh giá </a>
+                        <a href="https://docs.google.com/document/d/1g8ZwHveRasz8BzYR2VRqy6N6WTxnQA26/edit" target="_blank" rel="noopener" class="btn-drive">🔗 Phiếu đánh giá đồng đẳng </a>
+                        <a href="https://drive.google.com/drive/folders/1GiBlOcmL6mb1HjoFFJ4W4T4OefGsTm2-" target="_blank" rel="noopener" class="btn-drive">🔗 Link nộp PPTX Final </a>
+                    </div>
+                    <a href="#" class="nav-btn eval-link" data-target="evaluation" data-open="check-report">Xem cách đánh giá buổi báo cáo</a>
+                </div>
+
+                <div class="card">
+                    <h3>Góc trưng bày & Góp ý (Padlet)</h3>
+                    <div class="padlet-embed">
+                        <!-- Giáo viên sẽ thay thế src bằng link nhúng Padlet thực tế của lớp -->
+                        <iframe src="https://padlet.com/nguyenthanhquan8905/goc-trung-bay-va-gop-y-s024vfts8lwgdc4amtpw" title="Bảng Padlet của lớp" frameborder="0" allow="camera;microphone;geolocation"></iframe>
+                        <p class="note center">(Khu vực hiển thị bảng Padlet của lớp)</p>
+                    </div>
+                </div>
+                <div class="submit-section card">
+                    <button class="btn-complete" id="btn-complete-report" onclick="toggleComplete('report')">Đánh dấu Hoàn thành toàn bộ Dự án</button>
+                </div>
+            </section>
+
+            <!-- ĐÁNH GIÁ -->
+            <section id="evaluation" class="section hidden">
+                <h2>Tiêu chí Đánh giá (Rubric & Bảng kiểm)</h2>
+
+                <div class="card card-hero">
+                    <p>Tiêu chí được công bố ngay từ đầu dự án để nhóm biết trước mình sẽ được đánh giá ra sao. Kết quả dựa chủ yếu vào <strong>bằng chứng quá trình</strong> (MC01–MC08) nộp sau mỗi bài, không chỉ dựa vào bài trình chiếu cuối cùng.</p>
+                    <div class="eval-types">
+                        <div class="et-item">
+                            <p class="et-title">👀 Đánh giá quá trình</p>
+                            <p>Giáo viên quan sát hoạt động của từng thành viên trên lớp và ghi vào <strong>Bảng kiểm</strong>.</p>
+                        </div>
+                        <div class="et-item">
+                            <p class="et-title">📄 Đánh giá sản phẩm</p>
+                            <p>Giáo viên chấm minh chứng của từng bài bằng <strong>Rubric</strong>.</p>
+                        </div>
+                        <div class="et-item">
+                            <p class="et-title">🤝 Tự đánh giá & đồng đẳng</p>
+                            <p>Ở buổi báo cáo, học sinh tự chấm, chấm bạn và góp ý cho nhóm khác.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>1. Tổng quan đánh giá theo từng bài</h3>
+                    <div class="table-wrap">
+                        <table class="data-table eval-table overview-table">
+                            <thead>
+                                <tr>
+                                    <th>Bài</th>
+                                    <th>Yêu cầu cần đạt</th>
+                                    <th>Minh chứng</th>
+                                    <th>Đánh giá quá trình</th>
+                                    <th>Đánh giá sản phẩm</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td><strong>Bài 1</strong><small>Tiết 1</small></td>
+                                    <td>YC3.1</td>
+                                    <td>MC01</td>
+                                    <td>Quan sát<small>Bảng kiểm</small></td>
+                                    <td>Qua sản phẩm học tập<small>Rubric</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bài 2</strong><small>Tiết 2–3</small></td>
+                                    <td>YC1.1, YC1.2</td>
+                                    <td>MC02, MC03, MC07</td>
+                                    <td>Quan sát<small>Bảng kiểm</small></td>
+                                    <td>Qua sản phẩm học tập<small>Rubric</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bài 3</strong><small>Tiết 4–5</small></td>
+                                    <td>YC1.3, YC3.2</td>
+                                    <td>MC04, MC07</td>
+                                    <td>Quan sát<small>Bảng kiểm</small></td>
+                                    <td>Qua sản phẩm học tập<small>Rubric</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bài 4</strong><small>Tiết 6–7</small></td>
+                                    <td>YC2.1, YC2.2</td>
+                                    <td>MC05, MC06, MC07</td>
+                                    <td>Quan sát<small>Bảng kiểm</small></td>
+                                    <td>Qua sản phẩm học tập<small>Rubric</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Bài 5</strong><small>Tiết 8</small></td>
+                                    <td>YC3.2, YC3.3</td>
+                                    <td>MC07, MC08</td>
+                                    <td class="cell-none">Không có<small>Chỉ đánh giá sản phẩm</small></td>
+                                    <td>Qua sản phẩm học tập<small>Rubric</small></td>
+                                </tr>
+                                <tr>
+                                    <td><strong>Báo cáo</strong><small>Tiết 9–10</small></td>
+                                    <td>YC3.3</td>
+                                    <td>Bản trình bày, PPTX final và PDF, phiếu tự/đồng đánh giá</td>
+                                    <td>Quan sát, vấn đáp<small>Bảng kiểm</small></td>
+                                    <td>Qua sản phẩm học tập<small>Rubric và phiếu đánh giá đồng đẳng</small></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <details class="acc acc-plain">
+                        <summary>Xem mô tả các yêu cầu cần đạt (YC)</summary>
+                        <dl class="yc-list">
+                            <div><dt>YC1.1</dt><dd>Xây dựng dàn ý, nội dung, kịch bản cho chủ đề thuyết trình</dd></div>
+                            <div><dt>YC1.2</dt><dd>Kiểm tra tính đúng đắn của nội dung tìm hiểu</dd></div>
+                            <div><dt>YC1.3</dt><dd>Thiết kế trang chiếu trình bày nội dung phù hợp</dd></div>
+                            <div><dt>YC2.1</dt><dd>Tối ưu hóa yếu tố đa phương tiện như video, hình ảnh</dd></div>
+                            <div><dt>YC2.2</dt><dd>Thiết lập hiệu ứng phù hợp cho bài trình chiếu</dd></div>
+                            <div><dt>YC3.1</dt><dd>Thống nhất mục tiêu, lập kế hoạch và phân công</dd></div>
+                            <div><dt>YC3.2</dt><dd>Phối hợp, trao đổi và hỗ trợ nhau</dd></div>
+                            <div><dt>YC3.3</dt><dd>Cùng kiểm tra, hoàn thiện và chịu trách nhiệm sản phẩm chung</dd></div>
+                        </dl>
+                    </details>
+                </div>
+
+                <div class="card">
+                    <h3>2. Đánh giá Quá trình (Bảng kiểm Quan sát)</h3>
+                    <p class="muted">Giáo viên quan sát trong giờ học và đánh dấu <strong>Có</strong> hoặc <strong>Chưa</strong> cho từng thành viên. Bài 5 không dùng bảng kiểm vì chỉ đánh giá qua sản phẩm.</p>
+
+                    <details class="acc" id="check-b1">
+                        <summary><span class="acc-title">Bài 1: Lập kế hoạch và phân công</span><span class="acc-meta">Tiết 1</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table check-table">
+                                <thead><tr><th>Biểu hiện được quan sát</th><th>Có</th><th>Chưa</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tham gia thảo luận cùng nhóm</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Đề xuất ý kiến khi lập kế hoạch</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Phối hợp với các thành viên</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Thực hiện nhiệm vụ được phân công</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="check-b2">
+                        <summary><span class="acc-title">Bài 2: Dàn ý, kịch bản và nguồn kiểm chứng</span><span class="acc-meta">Tiết 2–3</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table check-table">
+                                <thead><tr><th>Biểu hiện được quan sát</th><th>Có</th><th>Chưa</th></tr></thead>
+                                <tbody>
+                                    <tr class="row-group"><td colspan="3">Tiết 2</td></tr>
+                                    <tr><td>Tham gia thảo luận cùng nhóm</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Đề xuất ý tưởng xây dựng dàn ý, phân chia nội dung thành các slide</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Phối hợp với các thành viên và thực hiện nhiệm vụ</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr class="row-group"><td colspan="3">Tiết 3</td></tr>
+                                    <tr><td>Chủ động tìm kiếm thông tin</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Trao đổi và phối hợp với các thành viên trong quá trình thực hiện nhiệm vụ</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="check-b3">
+                        <summary><span class="acc-title">Bài 3: Thiết kế bài trình chiếu</span><span class="acc-meta">Tiết 4–5</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table check-table">
+                                <thead><tr><th>Biểu hiện được quan sát</th><th>Có</th><th>Chưa</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tham gia nhận xét, so sánh các mẫu thiết kế slide</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Thực hiện các nguyên tắc thiết kế bài trình chiếu</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Lựa chọn bố cục, kiểu chữ, màu sắc phù hợp</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Thực hành tạo slide theo dàn ý</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Chủ động rà soát, chỉnh sửa lỗi và tiếp thu phản hồi của giáo viên</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="check-b4">
+                        <summary><span class="acc-title">Bài 4: Đa phương tiện và tương tác</span><span class="acc-meta">Tiết 6–7</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table check-table">
+                                <thead><tr><th>Biểu hiện được quan sát</th><th>Có</th><th>Chưa</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tham gia rà soát kịch bản, xác định vị trí cần chèn hình ảnh, video và hiệu ứng</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Tìm kiếm, lựa chọn tư liệu đa phương tiện có nguồn</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Chèn hình ảnh, video, âm thanh và thiết lập hiệu ứng, menu hoặc liên kết theo yêu cầu</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Chủ động chạy thử, phát hiện lỗi, tiếp thu phản hồi và chỉnh sửa</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="check-report">
+                        <summary><span class="acc-title">Báo cáo kết quả: quan sát và vấn đáp</span><span class="acc-meta">Tiết 9–10</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table check-table">
+                                <thead><tr><th>Biểu hiện được quan sát</th><th>Có</th><th>Chưa</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Nhóm trình bày và demo sản phẩm rõ ràng, đúng thời gian quy định</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Thành viên được bốc thăm giải thích được sản phẩm chung, kể cả phần không do mình phụ trách</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Trả lời được câu hỏi của giáo viên về chủ đề nhóm đã chọn</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                    <tr><td>Tham gia tự đánh giá và góp ý cho nhóm bạn dựa trên tiêu chí</td><td class="box">☐</td><td class="box">☐</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card">
+                    <h3>3. Đánh giá Sản phẩm (Rubric)</h3>
+                    <p class="muted">Mỗi tiêu chí có 2 mức. Tiêu chí ở mức <strong>Chưa đạt</strong> sẽ được giáo viên phản hồi để nhóm chỉnh sửa trước bài tiếp theo, vì sản phẩm bài trước là đầu vào của bài sau.</p>
+
+                    <details class="acc" id="rubric-b1">
+                        <summary><span class="acc-title">Bài 1: MC01 Bảng phân công và kế hoạch làm việc</span><span class="acc-meta">YC3.1</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table rubric-table">
+                                <thead><tr><th>Tiêu chí</th><th class="th-pass">Đạt</th><th class="th-fail">Chưa đạt</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Tính đầy đủ của nội dung công việc</td><td>Liệt kê đủ đầu việc và sản phẩm cần nộp của cả 5 bài và buổi báo cáo.</td><td>Thiếu đầu việc hoặc thiếu sản phẩm cần nộp của một số bài.</td></tr>
+                                    <tr><td>Tính hợp lý của thời gian</td><td>Mỗi đầu việc có thời hạn cụ thể, khớp với tiến độ 10 tiết.</td><td>Thiếu thời hạn, hoặc thời hạn không khớp tiến độ chung.</td></tr>
+                                    <tr><td>Sự rõ ràng, phù hợp trong phân công</td><td>Mỗi việc có người phụ trách và người phối hợp; việc được chia đều, từng thành viên xác nhận phần việc của mình.</td><td>Chia việc theo kiểu "ai làm phần dễ", một bạn gánh phần lớn công việc.</td></tr>
+                                    <tr><td>Tính khả thi</td><td>Kế hoạch thực hiện được với thời gian trên lớp và ngoài giờ của nhóm.</td><td>Kế hoạch chung chung hoặc quá sức, khó thực hiện.</td></tr>
+                                    <tr><td>Cách trình bày bảng kế hoạch</td><td>Trình bày theo mẫu, dễ theo dõi; có thư mục chung và quy ước đặt tên tệp.</td><td>Trình bày rối; chưa có hoặc không theo quy ước đặt tên tệp.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="rubric-b2">
+                        <summary><span class="acc-title">Bài 2: MC02 Dàn ý và kịch bản, MC03 Bảng nguồn</span><span class="acc-meta">YC1.1, YC1.2</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table rubric-table">
+                                <thead><tr><th>Tiêu chí</th><th class="th-pass">Đạt</th><th class="th-fail">Chưa đạt</th></tr></thead>
+                                <tbody>
+                                    <tr class="row-group"><td colspan="3">Tiết 2: Dàn ý và kịch bản (MC02)</td></tr>
+                                    <tr><td>Tính đầy đủ, hợp lý của dàn ý</td><td>Đủ 4 phần: mở đầu, nội dung chính, hướng dẫn áp dụng, kết luận; các ý sắp xếp logic.</td><td>Thiếu phần, hoặc dàn ý quá chung, chưa ghi cụ thể kiến thức cần có.</td></tr>
+                                    <tr><td>Sự phù hợp của nội dung với mục đích và thông điệp</td><td>Xác định rõ người nghe, mục đích, thông điệp; nội dung phục vụ đúng thông điệp.</td><td>Chưa xác định rõ người nghe, mục đích; nội dung lệch thông điệp.</td></tr>
+                                    <tr><td>Cách chia nội dung thành các slide và trình bày ý chính</td><td>Mỗi slide một ý chính rõ ràng, viết ngắn gọn bằng lời của nhóm.</td><td>Dồn nhiều ý vào một slide; chép nguyên văn tài liệu.</td></tr>
+                                    <tr class="row-group"><td colspan="3">Tiết 3: Bảng nguồn có ghi chú kiểm chứng (MC03)</td></tr>
+                                    <tr><td>Xác định các thông tin cần tìm</td><td>Liệt kê cụ thể thông tin cần tìm cho từng phần của dàn ý.</td><td>Không liệt kê, hoặc liệt kê chung chung.</td></tr>
+                                    <tr><td>Lựa chọn và đối chiếu với nguồn đáng tin cậy</td><td>Nội dung được đối chiếu với nguồn đáng tin cậy, có ghi chú kiểm chứng.</td><td>Dùng nguồn không rõ ràng, không đối chiếu.</td></tr>
+                                    <tr><td>Ghi rõ nguồn gốc và gắn nguồn với slide</td><td>Ghi rõ nguồn của từng nội dung và slide sử dụng nội dung đó.</td><td>Thiếu nguồn, hoặc không rõ nguồn dùng cho slide nào.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="rubric-b3">
+                        <summary><span class="acc-title">Bài 3: MC04 Tệp PPTX V1</span><span class="acc-meta">YC1.3</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table rubric-table">
+                                <thead><tr><th>Tiêu chí</th><th class="th-pass">Đạt</th><th class="th-fail">Chưa đạt</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Đáp ứng yêu cầu về bố cục và thiết kế slide</td><td>Bố cục rõ ràng, đúng các nguyên tắc thiết kế đã học.</td><td>Bố cục rối, các thành phần chồng chéo.</td></tr>
+                                    <tr><td>Sự phù hợp của kiểu chữ, màu sắc và hình ảnh</td><td>Chữ đủ lớn, màu tương phản tốt, hình ảnh phục vụ nội dung.</td><td>Màu khó đọc, hình trang trí không phục vụ nội dung.</td></tr>
+                                    <tr><td>Tính rõ ràng, dễ đọc của nội dung</td><td>Dùng từ khóa, ý chính; đọc rõ từ cuối phòng.</td><td>Nhồi nhiều chữ, người xem khó theo dõi.</td></tr>
+                                    <tr><td>Sự thống nhất về thiết kế giữa các slide</td><td>Cùng hệ màu, kiểu chữ và cách bố cục xuyên suốt.</td><td>Mỗi slide một kiểu, thiếu thống nhất.</td></tr>
+                                    <tr><td>Sự phù hợp với dàn ý và mục đích bài trình bày</td><td>Từng slide bám sát dàn ý MC02 và mục đích bài trình bày.</td><td>Lệch kịch bản, thiếu hoặc thừa nội dung so với dàn ý.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="rubric-b4">
+                        <summary><span class="acc-title">Bài 4: MC05 PPTX đa phương tiện, MC06 PPTX tương tác</span><span class="acc-meta">YC2.1, YC2.2</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table rubric-table">
+                                <thead><tr><th>Tiêu chí</th><th class="th-pass">Đạt</th><th class="th-fail">Chưa đạt</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Sự phù hợp của tư liệu đa phương tiện với nội dung</td><td>Hình ảnh, video đặt đúng vị trí đã đánh dấu, minh họa đúng ý.</td><td>Chèn tư liệu cho đẹp, không gắn với nội dung.</td></tr>
+                                    <tr><td>Tính rõ ràng, chất lượng và nguồn gốc của tư liệu</td><td>Tư liệu sắc nét, có nguồn trong Bảng nguồn cập nhật; ảnh do AI tạo được ghi rõ.</td><td>Tư liệu mờ, không rõ nguồn; ảnh AI không ghi chú.</td></tr>
+                                    <tr><td>Sự phù hợp của hiệu ứng, menu và liên kết</td><td>Hiệu ứng có mục đích, vừa phải; menu và nút điều hướng hợp lý.</td><td>Lạm dụng hiệu ứng gây rối mắt.</td></tr>
+                                    <tr><td>Khả năng hoạt động chính xác của các thành phần tương tác</td><td>Mọi nút, liên kết đi đúng đích; video, âm thanh chạy được.</td><td>Nút sai đích, liên kết hỏng, video không chạy.</td></tr>
+                                    <tr><td>Tính thống nhất, hoàn chỉnh sau khi chạy thử và chỉnh sửa</td><td>Có ghi chép kiểm thử; lỗi đã sửa và được chạy thử lại, bài vận hành ổn định.</td><td>Không chạy thử lại sau khi sửa; còn lỗi khi trình chiếu.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+
+                    <details class="acc" id="rubric-b5">
+                        <summary><span class="acc-title">Bài 5: MC07 Nhật ký phối hợp, MC08 PPTX final</span><span class="acc-meta">YC3.2, YC3.3</span></summary>
+                        <div class="table-wrap">
+                            <table class="data-table rubric-table">
+                                <thead><tr><th>Tiêu chí</th><th class="th-pass">Đạt</th><th class="th-fail">Chưa đạt</th></tr></thead>
+                                <tbody>
+                                    <tr><td>Mức độ hoàn chỉnh và thống nhất sau khi tích hợp</td><td>Một tệp duy nhất, đủ các phần, không xung đột phiên bản.</td><td>Thiếu slide, xung đột phiên bản giữa các phần.</td></tr>
+                                    <tr><td>Tính chính xác, logic của nội dung</td><td>Nội dung đúng, thuật ngữ thống nhất, mạch trình bày logic.</td><td>Còn nội dung sai, thuật ngữ không thống nhất.</td></tr>
+                                    <tr><td>Sự đồng bộ về bố cục, màu sắc, kiểu chữ và định dạng</td><td>Đồng bộ trên toàn bài.</td><td>Xung đột định dạng giữa các phần do nhiều người làm.</td></tr>
+                                    <tr><td>Khả năng vận hành của đa phương tiện và tương tác</td><td>Toàn bộ video, âm thanh, nút, liên kết hoạt động khi chạy thử.</td><td>Còn thành phần không hoạt động.</td></tr>
+                                    <tr><td>Mức độ phát hiện, khắc phục lỗi sau khi chạy thử</td><td>Có checklist bám yêu cầu; bảng lỗi ghi đủ lỗi, nguyên nhân, người sửa, kết quả kiểm tra lại.</td><td>Bảng lỗi sơ sài, không kiểm tra lại sau khi sửa.</td></tr>
+                                    <tr><td>Lưu và nộp tệp PowerPoint phiên bản cuối</td><td>Nộp đúng hạn, đúng định dạng PPTX và quy ước đặt tên tệp.</td><td>Nộp muộn, sai định dạng hoặc nhầm phiên bản.</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </details>
+                </div>
+
+                <div class="card">
+                    <h3>4. Báo cáo kết quả: tự đánh giá và đánh giá đồng đẳng</h3>
+                    <ul class="report-eval">
+                        <li><strong>Vấn đáp:</strong> Giáo viên bốc thăm thành viên trả lời (có 1 phút chuẩn bị). Mỗi thành viên cần giải thích được sản phẩm chung của nhóm.</li>
+                        <li><strong>Sản phẩm cuối:</strong> PPTX final và bản PDF được chấm bằng Rubric sản phẩm cuối (các tiêu chí như <a href="#" class="nav-btn inline-link" data-target="evaluation" data-open="rubric-b5">Rubric Bài 5</a>).</li>
+                        <li><strong>Phiếu tự đánh giá:</strong> Mỗi học sinh tự chấm mức độ hợp tác của bản thân trong dự án.</li>
+                        <li><strong>Phiếu đánh giá đồng đẳng:</strong> Học sinh chấm mức độ hợp tác của bạn cùng nhóm, đồng thời nhận xét, góp ý sản phẩm của nhóm bạn dựa trên tiêu chí.</li>
+                        <li><strong>Tổng hợp kết quả:</strong> Kết hợp điểm nhóm (sản phẩm) với điểm hợp tác cá nhân do học sinh tự chấm, bạn chấm và giáo viên chấm.</li>
+                        <li><strong>Quy định AI:</strong> Không dùng AI trong vấn đáp, tự đánh giá và đánh giá đồng đẳng.</li>
+                    </ul>
+                </div>
+            </section>
+
+        </main>
+    </div>
+
+    <footer>
+        <p>WebQuest Chuyên đề 10.2 - Thiết kế cho môn Tin học 10</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
